@@ -1,0 +1,1841 @@
+{
+  "backprop" : true,
+  "backpropType" : "Standard",
+  "cacheMode" : "NONE",
+  "defaultConfiguration" : {
+    "cacheMode" : "NONE",
+    "iterationCount" : 0,
+    "l1ByParam" : { },
+    "l2ByParam" : { },
+    "layer" : null,
+    "leakyreluAlpha" : 0.0,
+    "learningRateByParam" : { },
+    "learningRatePolicy" : "None",
+    "lrPolicyDecayRate" : "NaN",
+    "lrPolicyPower" : "NaN",
+    "lrPolicySteps" : "NaN",
+    "maxNumLineSearchIterations" : 5,
+    "miniBatch" : true,
+    "minimize" : true,
+    "numIterations" : 1,
+    "optimizationAlgo" : "STOCHASTIC_GRADIENT_DESCENT",
+    "pretrain" : false,
+    "seed" : 1504522481604,
+    "stepFunction" : null,
+    "useDropConnect" : false,
+    "useRegularization" : false,
+    "variables" : [ "convolution2d_1_W", "convolution2d_1_b", "convolution2d_5_W", "convolution2d_5_b", "convolution2d_9_W", "convolution2d_9_b", "convolution2d_2_W", "convolution2d_2_b", "convolution2d_6_W", "convolution2d_6_b", "convolution2d_10_W", "convolution2d_10_b", "convolution2d_3_W", "convolution2d_3_b", "convolution2d_7_W", "convolution2d_7_b", "convolution2d_11_W", "convolution2d_11_b", "convolution2d_4_W", "convolution2d_4_b", "convolution2d_8_W", "convolution2d_8_b", "convolution2d_12_W", "convolution2d_12_b", "dense_1_W", "dense_1_b", "dense_2_W", "dense_2_b", "dense_3_W", "dense_3_b", "dense_4_W", "dense_4_b", "dense_5_W", "dense_5_b", "dense_6_W", "dense_6_b", "dense_7_W", "dense_7_b" ]
+  },
+  "inferenceWorkspaceMode" : "SEPARATE",
+  "iterationCount" : 0,
+  "networkInputs" : [ "input_1", "input_2", "input_3", "input_4" ],
+  "networkOutputs" : [ "dense_7" ],
+  "pretrain" : false,
+  "tbpttBackLength" : 20,
+  "tbpttFwdLength" : 20,
+  "trainingWorkspaceMode" : "NONE",
+  "vertexInputs" : {
+    "convolution2d_1" : [ "input_1" ],
+    "convolution2d_5" : [ "input_2" ],
+    "convolution2d_9" : [ "input_3" ],
+    "maxpooling2d_1" : [ "convolution2d_1" ],
+    "maxpooling2d_3" : [ "convolution2d_5" ],
+    "maxpooling2d_5" : [ "convolution2d_9" ],
+    "convolution2d_2" : [ "maxpooling2d_1" ],
+    "convolution2d_6" : [ "maxpooling2d_3" ],
+    "convolution2d_10" : [ "maxpooling2d_5" ],
+    "maxpooling2d_2" : [ "convolution2d_2" ],
+    "maxpooling2d_4" : [ "convolution2d_6" ],
+    "maxpooling2d_6" : [ "convolution2d_10" ],
+    "convolution2d_3" : [ "maxpooling2d_2" ],
+    "convolution2d_7" : [ "maxpooling2d_4" ],
+    "convolution2d_11" : [ "maxpooling2d_6" ],
+    "convolution2d_4" : [ "convolution2d_3" ],
+    "convolution2d_8" : [ "convolution2d_7" ],
+    "convolution2d_12" : [ "convolution2d_11" ],
+    "flatten_1" : [ "convolution2d_4" ],
+    "flatten_2" : [ "convolution2d_8" ],
+    "flatten_3" : [ "convolution2d_12" ],
+    "dense_1" : [ "flatten_1" ],
+    "dense_2" : [ "flatten_2" ],
+    "dense_3" : [ "flatten_3" ],
+    "dense_4" : [ "input_4" ],
+    "merge_1" : [ "dense_1", "dense_2", "dense_3", "dense_4" ],
+    "dense_5" : [ "merge_1" ],
+    "dense_6" : [ "dense_5" ],
+    "dense_7" : [ "dense_6" ]
+  },
+  "vertices" : {
+    "convolution2d_1" : {
+      "LayerVertex" : {
+        "layerConf" : {
+          "cacheMode" : "NONE",
+          "iterationCount" : 0,
+          "l1ByParam" : {
+            "b" : 0.0,
+            "W" : 0.0
+          },
+          "l2ByParam" : {
+            "b" : 0.0,
+            "W" : 0.0
+          },
+          "layer" : {
+            "convolution" : {
+              "activationFn" : {
+                "ReLU" : { }
+              },
+              "adamMeanDecay" : "NaN",
+              "adamVarDecay" : "NaN",
+              "biasInit" : 0.0,
+              "biasLearningRate" : 0.1,
+              "convolutionMode" : "Truncate",
+              "cudnnAlgoMode" : "PREFER_FASTEST",
+              "cudnnBwdDataAlgo" : null,
+              "cudnnBwdFilterAlgo" : null,
+              "cudnnFwdAlgo" : null,
+              "dist" : null,
+              "dropOut" : 1.0,
+              "epsilon" : "NaN",
+              "gradientNormalization" : "None",
+              "gradientNormalizationThreshold" : 1.0,
+              "iupdater" : {
+                "@class" : "org.nd4j.linalg.learning.config.Sgd",
+                "learningRate" : 0.1
+              },
+              "kernelSize" : [ 9, 9 ],
+              "l1" : 0.0,
+              "l1Bias" : 0.0,
+              "l2" : 0.0,
+              "l2Bias" : 0.0,
+              "layerName" : "convolution2d_1",
+              "learningRate" : 0.1,
+              "learningRateSchedule" : null,
+              "momentum" : "NaN",
+              "momentumSchedule" : null,
+              "nin" : 3,
+              "nout" : 64,
+              "padding" : [ 0, 0 ],
+              "rho" : "NaN",
+              "rmsDecay" : "NaN",
+              "stride" : [ 1, 1 ],
+              "updater" : "SGD",
+              "weightInit" : "XAVIER_UNIFORM"
+            }
+          },
+          "leakyreluAlpha" : 0.0,
+          "learningRateByParam" : {
+            "b" : 0.1,
+            "W" : 0.1
+          },
+          "learningRatePolicy" : "None",
+          "lrPolicyDecayRate" : "NaN",
+          "lrPolicyPower" : "NaN",
+          "lrPolicySteps" : "NaN",
+          "maxNumLineSearchIterations" : 5,
+          "miniBatch" : true,
+          "minimize" : true,
+          "numIterations" : 1,
+          "optimizationAlgo" : "STOCHASTIC_GRADIENT_DESCENT",
+          "pretrain" : false,
+          "seed" : 1504522481604,
+          "stepFunction" : null,
+          "useDropConnect" : false,
+          "useRegularization" : false,
+          "variables" : [ "W", "b" ]
+        },
+        "outputVertex" : false,
+        "preProcessor" : null
+      }
+    },
+    "convolution2d_5" : {
+      "LayerVertex" : {
+        "layerConf" : {
+          "cacheMode" : "NONE",
+          "iterationCount" : 0,
+          "l1ByParam" : {
+            "b" : 0.0,
+            "W" : 0.0
+          },
+          "l2ByParam" : {
+            "b" : 0.0,
+            "W" : 0.0
+          },
+          "layer" : {
+            "convolution" : {
+              "activationFn" : {
+                "ReLU" : { }
+              },
+              "adamMeanDecay" : "NaN",
+              "adamVarDecay" : "NaN",
+              "biasInit" : 0.0,
+              "biasLearningRate" : 0.1,
+              "convolutionMode" : "Truncate",
+              "cudnnAlgoMode" : "PREFER_FASTEST",
+              "cudnnBwdDataAlgo" : null,
+              "cudnnBwdFilterAlgo" : null,
+              "cudnnFwdAlgo" : null,
+              "dist" : null,
+              "dropOut" : 1.0,
+              "epsilon" : "NaN",
+              "gradientNormalization" : "None",
+              "gradientNormalizationThreshold" : 1.0,
+              "iupdater" : {
+                "@class" : "org.nd4j.linalg.learning.config.Sgd",
+                "learningRate" : 0.1
+              },
+              "kernelSize" : [ 9, 9 ],
+              "l1" : 0.0,
+              "l1Bias" : 0.0,
+              "l2" : 0.0,
+              "l2Bias" : 0.0,
+              "layerName" : "convolution2d_5",
+              "learningRate" : 0.1,
+              "learningRateSchedule" : null,
+              "momentum" : "NaN",
+              "momentumSchedule" : null,
+              "nin" : 3,
+              "nout" : 64,
+              "padding" : [ 0, 0 ],
+              "rho" : "NaN",
+              "rmsDecay" : "NaN",
+              "stride" : [ 1, 1 ],
+              "updater" : "SGD",
+              "weightInit" : "XAVIER_UNIFORM"
+            }
+          },
+          "leakyreluAlpha" : 0.0,
+          "learningRateByParam" : {
+            "b" : 0.1,
+            "W" : 0.1
+          },
+          "learningRatePolicy" : "None",
+          "lrPolicyDecayRate" : "NaN",
+          "lrPolicyPower" : "NaN",
+          "lrPolicySteps" : "NaN",
+          "maxNumLineSearchIterations" : 5,
+          "miniBatch" : true,
+          "minimize" : true,
+          "numIterations" : 1,
+          "optimizationAlgo" : "STOCHASTIC_GRADIENT_DESCENT",
+          "pretrain" : false,
+          "seed" : 1504522481604,
+          "stepFunction" : null,
+          "useDropConnect" : false,
+          "useRegularization" : false,
+          "variables" : [ "W", "b" ]
+        },
+        "outputVertex" : false,
+        "preProcessor" : null
+      }
+    },
+    "convolution2d_9" : {
+      "LayerVertex" : {
+        "layerConf" : {
+          "cacheMode" : "NONE",
+          "iterationCount" : 0,
+          "l1ByParam" : {
+            "b" : 0.0,
+            "W" : 0.0
+          },
+          "l2ByParam" : {
+            "b" : 0.0,
+            "W" : 0.0
+          },
+          "layer" : {
+            "convolution" : {
+              "activationFn" : {
+                "ReLU" : { }
+              },
+              "adamMeanDecay" : "NaN",
+              "adamVarDecay" : "NaN",
+              "biasInit" : 0.0,
+              "biasLearningRate" : 0.1,
+              "convolutionMode" : "Truncate",
+              "cudnnAlgoMode" : "PREFER_FASTEST",
+              "cudnnBwdDataAlgo" : null,
+              "cudnnBwdFilterAlgo" : null,
+              "cudnnFwdAlgo" : null,
+              "dist" : null,
+              "dropOut" : 1.0,
+              "epsilon" : "NaN",
+              "gradientNormalization" : "None",
+              "gradientNormalizationThreshold" : 1.0,
+              "iupdater" : {
+                "@class" : "org.nd4j.linalg.learning.config.Sgd",
+                "learningRate" : 0.1
+              },
+              "kernelSize" : [ 9, 9 ],
+              "l1" : 0.0,
+              "l1Bias" : 0.0,
+              "l2" : 0.0,
+              "l2Bias" : 0.0,
+              "layerName" : "convolution2d_9",
+              "learningRate" : 0.1,
+              "learningRateSchedule" : null,
+              "momentum" : "NaN",
+              "momentumSchedule" : null,
+              "nin" : 3,
+              "nout" : 64,
+              "padding" : [ 0, 0 ],
+              "rho" : "NaN",
+              "rmsDecay" : "NaN",
+              "stride" : [ 1, 1 ],
+              "updater" : "SGD",
+              "weightInit" : "XAVIER_UNIFORM"
+            }
+          },
+          "leakyreluAlpha" : 0.0,
+          "learningRateByParam" : {
+            "b" : 0.1,
+            "W" : 0.1
+          },
+          "learningRatePolicy" : "None",
+          "lrPolicyDecayRate" : "NaN",
+          "lrPolicyPower" : "NaN",
+          "lrPolicySteps" : "NaN",
+          "maxNumLineSearchIterations" : 5,
+          "miniBatch" : true,
+          "minimize" : true,
+          "numIterations" : 1,
+          "optimizationAlgo" : "STOCHASTIC_GRADIENT_DESCENT",
+          "pretrain" : false,
+          "seed" : 1504522481604,
+          "stepFunction" : null,
+          "useDropConnect" : false,
+          "useRegularization" : false,
+          "variables" : [ "W", "b" ]
+        },
+        "outputVertex" : false,
+        "preProcessor" : null
+      }
+    },
+    "maxpooling2d_1" : {
+      "LayerVertex" : {
+        "layerConf" : {
+          "cacheMode" : "NONE",
+          "iterationCount" : 0,
+          "l1ByParam" : { },
+          "l2ByParam" : { },
+          "layer" : {
+            "subsampling" : {
+              "convolutionMode" : "Truncate",
+              "dropOut" : 1.0,
+              "eps" : 1.0E-8,
+              "kernelSize" : [ 2, 2 ],
+              "layerName" : "maxpooling2d_1",
+              "padding" : [ 0, 0 ],
+              "pnorm" : 0,
+              "poolingType" : "MAX",
+              "stride" : [ 2, 2 ]
+            }
+          },
+          "leakyreluAlpha" : 0.0,
+          "learningRateByParam" : { },
+          "learningRatePolicy" : "None",
+          "lrPolicyDecayRate" : "NaN",
+          "lrPolicyPower" : "NaN",
+          "lrPolicySteps" : "NaN",
+          "maxNumLineSearchIterations" : 5,
+          "miniBatch" : true,
+          "minimize" : true,
+          "numIterations" : 1,
+          "optimizationAlgo" : "STOCHASTIC_GRADIENT_DESCENT",
+          "pretrain" : false,
+          "seed" : 1504522481604,
+          "stepFunction" : null,
+          "useDropConnect" : false,
+          "useRegularization" : false,
+          "variables" : [ ]
+        },
+        "outputVertex" : false,
+        "preProcessor" : null
+      }
+    },
+    "maxpooling2d_3" : {
+      "LayerVertex" : {
+        "layerConf" : {
+          "cacheMode" : "NONE",
+          "iterationCount" : 0,
+          "l1ByParam" : { },
+          "l2ByParam" : { },
+          "layer" : {
+            "subsampling" : {
+              "convolutionMode" : "Truncate",
+              "dropOut" : 1.0,
+              "eps" : 1.0E-8,
+              "kernelSize" : [ 2, 2 ],
+              "layerName" : "maxpooling2d_3",
+              "padding" : [ 0, 0 ],
+              "pnorm" : 0,
+              "poolingType" : "MAX",
+              "stride" : [ 2, 2 ]
+            }
+          },
+          "leakyreluAlpha" : 0.0,
+          "learningRateByParam" : { },
+          "learningRatePolicy" : "None",
+          "lrPolicyDecayRate" : "NaN",
+          "lrPolicyPower" : "NaN",
+          "lrPolicySteps" : "NaN",
+          "maxNumLineSearchIterations" : 5,
+          "miniBatch" : true,
+          "minimize" : true,
+          "numIterations" : 1,
+          "optimizationAlgo" : "STOCHASTIC_GRADIENT_DESCENT",
+          "pretrain" : false,
+          "seed" : 1504522481604,
+          "stepFunction" : null,
+          "useDropConnect" : false,
+          "useRegularization" : false,
+          "variables" : [ ]
+        },
+        "outputVertex" : false,
+        "preProcessor" : null
+      }
+    },
+    "maxpooling2d_5" : {
+      "LayerVertex" : {
+        "layerConf" : {
+          "cacheMode" : "NONE",
+          "iterationCount" : 0,
+          "l1ByParam" : { },
+          "l2ByParam" : { },
+          "layer" : {
+            "subsampling" : {
+              "convolutionMode" : "Truncate",
+              "dropOut" : 1.0,
+              "eps" : 1.0E-8,
+              "kernelSize" : [ 2, 2 ],
+              "layerName" : "maxpooling2d_5",
+              "padding" : [ 0, 0 ],
+              "pnorm" : 0,
+              "poolingType" : "MAX",
+              "stride" : [ 2, 2 ]
+            }
+          },
+          "leakyreluAlpha" : 0.0,
+          "learningRateByParam" : { },
+          "learningRatePolicy" : "None",
+          "lrPolicyDecayRate" : "NaN",
+          "lrPolicyPower" : "NaN",
+          "lrPolicySteps" : "NaN",
+          "maxNumLineSearchIterations" : 5,
+          "miniBatch" : true,
+          "minimize" : true,
+          "numIterations" : 1,
+          "optimizationAlgo" : "STOCHASTIC_GRADIENT_DESCENT",
+          "pretrain" : false,
+          "seed" : 1504522481604,
+          "stepFunction" : null,
+          "useDropConnect" : false,
+          "useRegularization" : false,
+          "variables" : [ ]
+        },
+        "outputVertex" : false,
+        "preProcessor" : null
+      }
+    },
+    "convolution2d_2" : {
+      "LayerVertex" : {
+        "layerConf" : {
+          "cacheMode" : "NONE",
+          "iterationCount" : 0,
+          "l1ByParam" : {
+            "b" : 0.0,
+            "W" : 0.0
+          },
+          "l2ByParam" : {
+            "b" : 0.0,
+            "W" : 0.0
+          },
+          "layer" : {
+            "convolution" : {
+              "activationFn" : {
+                "ReLU" : { }
+              },
+              "adamMeanDecay" : "NaN",
+              "adamVarDecay" : "NaN",
+              "biasInit" : 0.0,
+              "biasLearningRate" : 0.1,
+              "convolutionMode" : "Truncate",
+              "cudnnAlgoMode" : "PREFER_FASTEST",
+              "cudnnBwdDataAlgo" : null,
+              "cudnnBwdFilterAlgo" : null,
+              "cudnnFwdAlgo" : null,
+              "dist" : null,
+              "dropOut" : 1.0,
+              "epsilon" : "NaN",
+              "gradientNormalization" : "None",
+              "gradientNormalizationThreshold" : 1.0,
+              "iupdater" : {
+                "@class" : "org.nd4j.linalg.learning.config.Sgd",
+                "learningRate" : 0.1
+              },
+              "kernelSize" : [ 5, 5 ],
+              "l1" : 0.0,
+              "l1Bias" : 0.0,
+              "l2" : 0.0,
+              "l2Bias" : 0.0,
+              "layerName" : "convolution2d_2",
+              "learningRate" : 0.1,
+              "learningRateSchedule" : null,
+              "momentum" : "NaN",
+              "momentumSchedule" : null,
+              "nin" : 64,
+              "nout" : 64,
+              "padding" : [ 0, 0 ],
+              "rho" : "NaN",
+              "rmsDecay" : "NaN",
+              "stride" : [ 1, 1 ],
+              "updater" : "SGD",
+              "weightInit" : "XAVIER_UNIFORM"
+            }
+          },
+          "leakyreluAlpha" : 0.0,
+          "learningRateByParam" : {
+            "b" : 0.1,
+            "W" : 0.1
+          },
+          "learningRatePolicy" : "None",
+          "lrPolicyDecayRate" : "NaN",
+          "lrPolicyPower" : "NaN",
+          "lrPolicySteps" : "NaN",
+          "maxNumLineSearchIterations" : 5,
+          "miniBatch" : true,
+          "minimize" : true,
+          "numIterations" : 1,
+          "optimizationAlgo" : "STOCHASTIC_GRADIENT_DESCENT",
+          "pretrain" : false,
+          "seed" : 1504522481604,
+          "stepFunction" : null,
+          "useDropConnect" : false,
+          "useRegularization" : false,
+          "variables" : [ "W", "b" ]
+        },
+        "outputVertex" : false,
+        "preProcessor" : null
+      }
+    },
+    "convolution2d_6" : {
+      "LayerVertex" : {
+        "layerConf" : {
+          "cacheMode" : "NONE",
+          "iterationCount" : 0,
+          "l1ByParam" : {
+            "b" : 0.0,
+            "W" : 0.0
+          },
+          "l2ByParam" : {
+            "b" : 0.0,
+            "W" : 0.0
+          },
+          "layer" : {
+            "convolution" : {
+              "activationFn" : {
+                "ReLU" : { }
+              },
+              "adamMeanDecay" : "NaN",
+              "adamVarDecay" : "NaN",
+              "biasInit" : 0.0,
+              "biasLearningRate" : 0.1,
+              "convolutionMode" : "Truncate",
+              "cudnnAlgoMode" : "PREFER_FASTEST",
+              "cudnnBwdDataAlgo" : null,
+              "cudnnBwdFilterAlgo" : null,
+              "cudnnFwdAlgo" : null,
+              "dist" : null,
+              "dropOut" : 1.0,
+              "epsilon" : "NaN",
+              "gradientNormalization" : "None",
+              "gradientNormalizationThreshold" : 1.0,
+              "iupdater" : {
+                "@class" : "org.nd4j.linalg.learning.config.Sgd",
+                "learningRate" : 0.1
+              },
+              "kernelSize" : [ 5, 5 ],
+              "l1" : 0.0,
+              "l1Bias" : 0.0,
+              "l2" : 0.0,
+              "l2Bias" : 0.0,
+              "layerName" : "convolution2d_6",
+              "learningRate" : 0.1,
+              "learningRateSchedule" : null,
+              "momentum" : "NaN",
+              "momentumSchedule" : null,
+              "nin" : 64,
+              "nout" : 64,
+              "padding" : [ 0, 0 ],
+              "rho" : "NaN",
+              "rmsDecay" : "NaN",
+              "stride" : [ 1, 1 ],
+              "updater" : "SGD",
+              "weightInit" : "XAVIER_UNIFORM"
+            }
+          },
+          "leakyreluAlpha" : 0.0,
+          "learningRateByParam" : {
+            "b" : 0.1,
+            "W" : 0.1
+          },
+          "learningRatePolicy" : "None",
+          "lrPolicyDecayRate" : "NaN",
+          "lrPolicyPower" : "NaN",
+          "lrPolicySteps" : "NaN",
+          "maxNumLineSearchIterations" : 5,
+          "miniBatch" : true,
+          "minimize" : true,
+          "numIterations" : 1,
+          "optimizationAlgo" : "STOCHASTIC_GRADIENT_DESCENT",
+          "pretrain" : false,
+          "seed" : 1504522481604,
+          "stepFunction" : null,
+          "useDropConnect" : false,
+          "useRegularization" : false,
+          "variables" : [ "W", "b" ]
+        },
+        "outputVertex" : false,
+        "preProcessor" : null
+      }
+    },
+    "convolution2d_10" : {
+      "LayerVertex" : {
+        "layerConf" : {
+          "cacheMode" : "NONE",
+          "iterationCount" : 0,
+          "l1ByParam" : {
+            "b" : 0.0,
+            "W" : 0.0
+          },
+          "l2ByParam" : {
+            "b" : 0.0,
+            "W" : 0.0
+          },
+          "layer" : {
+            "convolution" : {
+              "activationFn" : {
+                "ReLU" : { }
+              },
+              "adamMeanDecay" : "NaN",
+              "adamVarDecay" : "NaN",
+              "biasInit" : 0.0,
+              "biasLearningRate" : 0.1,
+              "convolutionMode" : "Truncate",
+              "cudnnAlgoMode" : "PREFER_FASTEST",
+              "cudnnBwdDataAlgo" : null,
+              "cudnnBwdFilterAlgo" : null,
+              "cudnnFwdAlgo" : null,
+              "dist" : null,
+              "dropOut" : 1.0,
+              "epsilon" : "NaN",
+              "gradientNormalization" : "None",
+              "gradientNormalizationThreshold" : 1.0,
+              "iupdater" : {
+                "@class" : "org.nd4j.linalg.learning.config.Sgd",
+                "learningRate" : 0.1
+              },
+              "kernelSize" : [ 5, 5 ],
+              "l1" : 0.0,
+              "l1Bias" : 0.0,
+              "l2" : 0.0,
+              "l2Bias" : 0.0,
+              "layerName" : "convolution2d_10",
+              "learningRate" : 0.1,
+              "learningRateSchedule" : null,
+              "momentum" : "NaN",
+              "momentumSchedule" : null,
+              "nin" : 64,
+              "nout" : 64,
+              "padding" : [ 0, 0 ],
+              "rho" : "NaN",
+              "rmsDecay" : "NaN",
+              "stride" : [ 1, 1 ],
+              "updater" : "SGD",
+              "weightInit" : "XAVIER_UNIFORM"
+            }
+          },
+          "leakyreluAlpha" : 0.0,
+          "learningRateByParam" : {
+            "b" : 0.1,
+            "W" : 0.1
+          },
+          "learningRatePolicy" : "None",
+          "lrPolicyDecayRate" : "NaN",
+          "lrPolicyPower" : "NaN",
+          "lrPolicySteps" : "NaN",
+          "maxNumLineSearchIterations" : 5,
+          "miniBatch" : true,
+          "minimize" : true,
+          "numIterations" : 1,
+          "optimizationAlgo" : "STOCHASTIC_GRADIENT_DESCENT",
+          "pretrain" : false,
+          "seed" : 1504522481604,
+          "stepFunction" : null,
+          "useDropConnect" : false,
+          "useRegularization" : false,
+          "variables" : [ "W", "b" ]
+        },
+        "outputVertex" : false,
+        "preProcessor" : null
+      }
+    },
+    "maxpooling2d_2" : {
+      "LayerVertex" : {
+        "layerConf" : {
+          "cacheMode" : "NONE",
+          "iterationCount" : 0,
+          "l1ByParam" : { },
+          "l2ByParam" : { },
+          "layer" : {
+            "subsampling" : {
+              "convolutionMode" : "Truncate",
+              "dropOut" : 1.0,
+              "eps" : 1.0E-8,
+              "kernelSize" : [ 2, 2 ],
+              "layerName" : "maxpooling2d_2",
+              "padding" : [ 0, 0 ],
+              "pnorm" : 0,
+              "poolingType" : "MAX",
+              "stride" : [ 2, 2 ]
+            }
+          },
+          "leakyreluAlpha" : 0.0,
+          "learningRateByParam" : { },
+          "learningRatePolicy" : "None",
+          "lrPolicyDecayRate" : "NaN",
+          "lrPolicyPower" : "NaN",
+          "lrPolicySteps" : "NaN",
+          "maxNumLineSearchIterations" : 5,
+          "miniBatch" : true,
+          "minimize" : true,
+          "numIterations" : 1,
+          "optimizationAlgo" : "STOCHASTIC_GRADIENT_DESCENT",
+          "pretrain" : false,
+          "seed" : 1504522481604,
+          "stepFunction" : null,
+          "useDropConnect" : false,
+          "useRegularization" : false,
+          "variables" : [ ]
+        },
+        "outputVertex" : false,
+        "preProcessor" : null
+      }
+    },
+    "maxpooling2d_4" : {
+      "LayerVertex" : {
+        "layerConf" : {
+          "cacheMode" : "NONE",
+          "iterationCount" : 0,
+          "l1ByParam" : { },
+          "l2ByParam" : { },
+          "layer" : {
+            "subsampling" : {
+              "convolutionMode" : "Truncate",
+              "dropOut" : 1.0,
+              "eps" : 1.0E-8,
+              "kernelSize" : [ 2, 2 ],
+              "layerName" : "maxpooling2d_4",
+              "padding" : [ 0, 0 ],
+              "pnorm" : 0,
+              "poolingType" : "MAX",
+              "stride" : [ 2, 2 ]
+            }
+          },
+          "leakyreluAlpha" : 0.0,
+          "learningRateByParam" : { },
+          "learningRatePolicy" : "None",
+          "lrPolicyDecayRate" : "NaN",
+          "lrPolicyPower" : "NaN",
+          "lrPolicySteps" : "NaN",
+          "maxNumLineSearchIterations" : 5,
+          "miniBatch" : true,
+          "minimize" : true,
+          "numIterations" : 1,
+          "optimizationAlgo" : "STOCHASTIC_GRADIENT_DESCENT",
+          "pretrain" : false,
+          "seed" : 1504522481604,
+          "stepFunction" : null,
+          "useDropConnect" : false,
+          "useRegularization" : false,
+          "variables" : [ ]
+        },
+        "outputVertex" : false,
+        "preProcessor" : null
+      }
+    },
+    "maxpooling2d_6" : {
+      "LayerVertex" : {
+        "layerConf" : {
+          "cacheMode" : "NONE",
+          "iterationCount" : 0,
+          "l1ByParam" : { },
+          "l2ByParam" : { },
+          "layer" : {
+            "subsampling" : {
+              "convolutionMode" : "Truncate",
+              "dropOut" : 1.0,
+              "eps" : 1.0E-8,
+              "kernelSize" : [ 2, 2 ],
+              "layerName" : "maxpooling2d_6",
+              "padding" : [ 0, 0 ],
+              "pnorm" : 0,
+              "poolingType" : "MAX",
+              "stride" : [ 2, 2 ]
+            }
+          },
+          "leakyreluAlpha" : 0.0,
+          "learningRateByParam" : { },
+          "learningRatePolicy" : "None",
+          "lrPolicyDecayRate" : "NaN",
+          "lrPolicyPower" : "NaN",
+          "lrPolicySteps" : "NaN",
+          "maxNumLineSearchIterations" : 5,
+          "miniBatch" : true,
+          "minimize" : true,
+          "numIterations" : 1,
+          "optimizationAlgo" : "STOCHASTIC_GRADIENT_DESCENT",
+          "pretrain" : false,
+          "seed" : 1504522481604,
+          "stepFunction" : null,
+          "useDropConnect" : false,
+          "useRegularization" : false,
+          "variables" : [ ]
+        },
+        "outputVertex" : false,
+        "preProcessor" : null
+      }
+    },
+    "convolution2d_3" : {
+      "LayerVertex" : {
+        "layerConf" : {
+          "cacheMode" : "NONE",
+          "iterationCount" : 0,
+          "l1ByParam" : {
+            "b" : 0.0,
+            "W" : 0.0
+          },
+          "l2ByParam" : {
+            "b" : 0.0,
+            "W" : 0.0
+          },
+          "layer" : {
+            "convolution" : {
+              "activationFn" : {
+                "ReLU" : { }
+              },
+              "adamMeanDecay" : "NaN",
+              "adamVarDecay" : "NaN",
+              "biasInit" : 0.0,
+              "biasLearningRate" : 0.1,
+              "convolutionMode" : "Truncate",
+              "cudnnAlgoMode" : "PREFER_FASTEST",
+              "cudnnBwdDataAlgo" : null,
+              "cudnnBwdFilterAlgo" : null,
+              "cudnnFwdAlgo" : null,
+              "dist" : null,
+              "dropOut" : 1.0,
+              "epsilon" : "NaN",
+              "gradientNormalization" : "None",
+              "gradientNormalizationThreshold" : 1.0,
+              "iupdater" : {
+                "@class" : "org.nd4j.linalg.learning.config.Sgd",
+                "learningRate" : 0.1
+              },
+              "kernelSize" : [ 3, 3 ],
+              "l1" : 0.0,
+              "l1Bias" : 0.0,
+              "l2" : 0.0,
+              "l2Bias" : 0.0,
+              "layerName" : "convolution2d_3",
+              "learningRate" : 0.1,
+              "learningRateSchedule" : null,
+              "momentum" : "NaN",
+              "momentumSchedule" : null,
+              "nin" : 64,
+              "nout" : 64,
+              "padding" : [ 0, 0 ],
+              "rho" : "NaN",
+              "rmsDecay" : "NaN",
+              "stride" : [ 1, 1 ],
+              "updater" : "SGD",
+              "weightInit" : "XAVIER_UNIFORM"
+            }
+          },
+          "leakyreluAlpha" : 0.0,
+          "learningRateByParam" : {
+            "b" : 0.1,
+            "W" : 0.1
+          },
+          "learningRatePolicy" : "None",
+          "lrPolicyDecayRate" : "NaN",
+          "lrPolicyPower" : "NaN",
+          "lrPolicySteps" : "NaN",
+          "maxNumLineSearchIterations" : 5,
+          "miniBatch" : true,
+          "minimize" : true,
+          "numIterations" : 1,
+          "optimizationAlgo" : "STOCHASTIC_GRADIENT_DESCENT",
+          "pretrain" : false,
+          "seed" : 1504522481604,
+          "stepFunction" : null,
+          "useDropConnect" : false,
+          "useRegularization" : false,
+          "variables" : [ "W", "b" ]
+        },
+        "outputVertex" : false,
+        "preProcessor" : null
+      }
+    },
+    "convolution2d_7" : {
+      "LayerVertex" : {
+        "layerConf" : {
+          "cacheMode" : "NONE",
+          "iterationCount" : 0,
+          "l1ByParam" : {
+            "b" : 0.0,
+            "W" : 0.0
+          },
+          "l2ByParam" : {
+            "b" : 0.0,
+            "W" : 0.0
+          },
+          "layer" : {
+            "convolution" : {
+              "activationFn" : {
+                "ReLU" : { }
+              },
+              "adamMeanDecay" : "NaN",
+              "adamVarDecay" : "NaN",
+              "biasInit" : 0.0,
+              "biasLearningRate" : 0.1,
+              "convolutionMode" : "Truncate",
+              "cudnnAlgoMode" : "PREFER_FASTEST",
+              "cudnnBwdDataAlgo" : null,
+              "cudnnBwdFilterAlgo" : null,
+              "cudnnFwdAlgo" : null,
+              "dist" : null,
+              "dropOut" : 1.0,
+              "epsilon" : "NaN",
+              "gradientNormalization" : "None",
+              "gradientNormalizationThreshold" : 1.0,
+              "iupdater" : {
+                "@class" : "org.nd4j.linalg.learning.config.Sgd",
+                "learningRate" : 0.1
+              },
+              "kernelSize" : [ 3, 3 ],
+              "l1" : 0.0,
+              "l1Bias" : 0.0,
+              "l2" : 0.0,
+              "l2Bias" : 0.0,
+              "layerName" : "convolution2d_7",
+              "learningRate" : 0.1,
+              "learningRateSchedule" : null,
+              "momentum" : "NaN",
+              "momentumSchedule" : null,
+              "nin" : 64,
+              "nout" : 64,
+              "padding" : [ 0, 0 ],
+              "rho" : "NaN",
+              "rmsDecay" : "NaN",
+              "stride" : [ 1, 1 ],
+              "updater" : "SGD",
+              "weightInit" : "XAVIER_UNIFORM"
+            }
+          },
+          "leakyreluAlpha" : 0.0,
+          "learningRateByParam" : {
+            "b" : 0.1,
+            "W" : 0.1
+          },
+          "learningRatePolicy" : "None",
+          "lrPolicyDecayRate" : "NaN",
+          "lrPolicyPower" : "NaN",
+          "lrPolicySteps" : "NaN",
+          "maxNumLineSearchIterations" : 5,
+          "miniBatch" : true,
+          "minimize" : true,
+          "numIterations" : 1,
+          "optimizationAlgo" : "STOCHASTIC_GRADIENT_DESCENT",
+          "pretrain" : false,
+          "seed" : 1504522481604,
+          "stepFunction" : null,
+          "useDropConnect" : false,
+          "useRegularization" : false,
+          "variables" : [ "W", "b" ]
+        },
+        "outputVertex" : false,
+        "preProcessor" : null
+      }
+    },
+    "convolution2d_11" : {
+      "LayerVertex" : {
+        "layerConf" : {
+          "cacheMode" : "NONE",
+          "iterationCount" : 0,
+          "l1ByParam" : {
+            "b" : 0.0,
+            "W" : 0.0
+          },
+          "l2ByParam" : {
+            "b" : 0.0,
+            "W" : 0.0
+          },
+          "layer" : {
+            "convolution" : {
+              "activationFn" : {
+                "ReLU" : { }
+              },
+              "adamMeanDecay" : "NaN",
+              "adamVarDecay" : "NaN",
+              "biasInit" : 0.0,
+              "biasLearningRate" : 0.1,
+              "convolutionMode" : "Truncate",
+              "cudnnAlgoMode" : "PREFER_FASTEST",
+              "cudnnBwdDataAlgo" : null,
+              "cudnnBwdFilterAlgo" : null,
+              "cudnnFwdAlgo" : null,
+              "dist" : null,
+              "dropOut" : 1.0,
+              "epsilon" : "NaN",
+              "gradientNormalization" : "None",
+              "gradientNormalizationThreshold" : 1.0,
+              "iupdater" : {
+                "@class" : "org.nd4j.linalg.learning.config.Sgd",
+                "learningRate" : 0.1
+              },
+              "kernelSize" : [ 3, 3 ],
+              "l1" : 0.0,
+              "l1Bias" : 0.0,
+              "l2" : 0.0,
+              "l2Bias" : 0.0,
+              "layerName" : "convolution2d_11",
+              "learningRate" : 0.1,
+              "learningRateSchedule" : null,
+              "momentum" : "NaN",
+              "momentumSchedule" : null,
+              "nin" : 64,
+              "nout" : 64,
+              "padding" : [ 0, 0 ],
+              "rho" : "NaN",
+              "rmsDecay" : "NaN",
+              "stride" : [ 1, 1 ],
+              "updater" : "SGD",
+              "weightInit" : "XAVIER_UNIFORM"
+            }
+          },
+          "leakyreluAlpha" : 0.0,
+          "learningRateByParam" : {
+            "b" : 0.1,
+            "W" : 0.1
+          },
+          "learningRatePolicy" : "None",
+          "lrPolicyDecayRate" : "NaN",
+          "lrPolicyPower" : "NaN",
+          "lrPolicySteps" : "NaN",
+          "maxNumLineSearchIterations" : 5,
+          "miniBatch" : true,
+          "minimize" : true,
+          "numIterations" : 1,
+          "optimizationAlgo" : "STOCHASTIC_GRADIENT_DESCENT",
+          "pretrain" : false,
+          "seed" : 1504522481604,
+          "stepFunction" : null,
+          "useDropConnect" : false,
+          "useRegularization" : false,
+          "variables" : [ "W", "b" ]
+        },
+        "outputVertex" : false,
+        "preProcessor" : null
+      }
+    },
+    "convolution2d_4" : {
+      "LayerVertex" : {
+        "layerConf" : {
+          "cacheMode" : "NONE",
+          "iterationCount" : 0,
+          "l1ByParam" : {
+            "b" : 0.0,
+            "W" : 0.0
+          },
+          "l2ByParam" : {
+            "b" : 0.0,
+            "W" : 0.0
+          },
+          "layer" : {
+            "convolution" : {
+              "activationFn" : {
+                "ReLU" : { }
+              },
+              "adamMeanDecay" : "NaN",
+              "adamVarDecay" : "NaN",
+              "biasInit" : 0.0,
+              "biasLearningRate" : 0.1,
+              "convolutionMode" : "Truncate",
+              "cudnnAlgoMode" : "PREFER_FASTEST",
+              "cudnnBwdDataAlgo" : null,
+              "cudnnBwdFilterAlgo" : null,
+              "cudnnFwdAlgo" : null,
+              "dist" : null,
+              "dropOut" : 1.0,
+              "epsilon" : "NaN",
+              "gradientNormalization" : "None",
+              "gradientNormalizationThreshold" : 1.0,
+              "iupdater" : {
+                "@class" : "org.nd4j.linalg.learning.config.Sgd",
+                "learningRate" : 0.1
+              },
+              "kernelSize" : [ 3, 3 ],
+              "l1" : 0.0,
+              "l1Bias" : 0.0,
+              "l2" : 0.0,
+              "l2Bias" : 0.0,
+              "layerName" : "convolution2d_4",
+              "learningRate" : 0.1,
+              "learningRateSchedule" : null,
+              "momentum" : "NaN",
+              "momentumSchedule" : null,
+              "nin" : 64,
+              "nout" : 64,
+              "padding" : [ 0, 0 ],
+              "rho" : "NaN",
+              "rmsDecay" : "NaN",
+              "stride" : [ 1, 1 ],
+              "updater" : "SGD",
+              "weightInit" : "XAVIER_UNIFORM"
+            }
+          },
+          "leakyreluAlpha" : 0.0,
+          "learningRateByParam" : {
+            "b" : 0.1,
+            "W" : 0.1
+          },
+          "learningRatePolicy" : "None",
+          "lrPolicyDecayRate" : "NaN",
+          "lrPolicyPower" : "NaN",
+          "lrPolicySteps" : "NaN",
+          "maxNumLineSearchIterations" : 5,
+          "miniBatch" : true,
+          "minimize" : true,
+          "numIterations" : 1,
+          "optimizationAlgo" : "STOCHASTIC_GRADIENT_DESCENT",
+          "pretrain" : false,
+          "seed" : 1504522481604,
+          "stepFunction" : null,
+          "useDropConnect" : false,
+          "useRegularization" : false,
+          "variables" : [ "W", "b" ]
+        },
+        "outputVertex" : false,
+        "preProcessor" : null
+      }
+    },
+    "convolution2d_8" : {
+      "LayerVertex" : {
+        "layerConf" : {
+          "cacheMode" : "NONE",
+          "iterationCount" : 0,
+          "l1ByParam" : {
+            "b" : 0.0,
+            "W" : 0.0
+          },
+          "l2ByParam" : {
+            "b" : 0.0,
+            "W" : 0.0
+          },
+          "layer" : {
+            "convolution" : {
+              "activationFn" : {
+                "ReLU" : { }
+              },
+              "adamMeanDecay" : "NaN",
+              "adamVarDecay" : "NaN",
+              "biasInit" : 0.0,
+              "biasLearningRate" : 0.1,
+              "convolutionMode" : "Truncate",
+              "cudnnAlgoMode" : "PREFER_FASTEST",
+              "cudnnBwdDataAlgo" : null,
+              "cudnnBwdFilterAlgo" : null,
+              "cudnnFwdAlgo" : null,
+              "dist" : null,
+              "dropOut" : 1.0,
+              "epsilon" : "NaN",
+              "gradientNormalization" : "None",
+              "gradientNormalizationThreshold" : 1.0,
+              "iupdater" : {
+                "@class" : "org.nd4j.linalg.learning.config.Sgd",
+                "learningRate" : 0.1
+              },
+              "kernelSize" : [ 3, 3 ],
+              "l1" : 0.0,
+              "l1Bias" : 0.0,
+              "l2" : 0.0,
+              "l2Bias" : 0.0,
+              "layerName" : "convolution2d_8",
+              "learningRate" : 0.1,
+              "learningRateSchedule" : null,
+              "momentum" : "NaN",
+              "momentumSchedule" : null,
+              "nin" : 64,
+              "nout" : 64,
+              "padding" : [ 0, 0 ],
+              "rho" : "NaN",
+              "rmsDecay" : "NaN",
+              "stride" : [ 1, 1 ],
+              "updater" : "SGD",
+              "weightInit" : "XAVIER_UNIFORM"
+            }
+          },
+          "leakyreluAlpha" : 0.0,
+          "learningRateByParam" : {
+            "b" : 0.1,
+            "W" : 0.1
+          },
+          "learningRatePolicy" : "None",
+          "lrPolicyDecayRate" : "NaN",
+          "lrPolicyPower" : "NaN",
+          "lrPolicySteps" : "NaN",
+          "maxNumLineSearchIterations" : 5,
+          "miniBatch" : true,
+          "minimize" : true,
+          "numIterations" : 1,
+          "optimizationAlgo" : "STOCHASTIC_GRADIENT_DESCENT",
+          "pretrain" : false,
+          "seed" : 1504522481604,
+          "stepFunction" : null,
+          "useDropConnect" : false,
+          "useRegularization" : false,
+          "variables" : [ "W", "b" ]
+        },
+        "outputVertex" : false,
+        "preProcessor" : null
+      }
+    },
+    "convolution2d_12" : {
+      "LayerVertex" : {
+        "layerConf" : {
+          "cacheMode" : "NONE",
+          "iterationCount" : 0,
+          "l1ByParam" : {
+            "b" : 0.0,
+            "W" : 0.0
+          },
+          "l2ByParam" : {
+            "b" : 0.0,
+            "W" : 0.0
+          },
+          "layer" : {
+            "convolution" : {
+              "activationFn" : {
+                "ReLU" : { }
+              },
+              "adamMeanDecay" : "NaN",
+              "adamVarDecay" : "NaN",
+              "biasInit" : 0.0,
+              "biasLearningRate" : 0.1,
+              "convolutionMode" : "Truncate",
+              "cudnnAlgoMode" : "PREFER_FASTEST",
+              "cudnnBwdDataAlgo" : null,
+              "cudnnBwdFilterAlgo" : null,
+              "cudnnFwdAlgo" : null,
+              "dist" : null,
+              "dropOut" : 1.0,
+              "epsilon" : "NaN",
+              "gradientNormalization" : "None",
+              "gradientNormalizationThreshold" : 1.0,
+              "iupdater" : {
+                "@class" : "org.nd4j.linalg.learning.config.Sgd",
+                "learningRate" : 0.1
+              },
+              "kernelSize" : [ 3, 3 ],
+              "l1" : 0.0,
+              "l1Bias" : 0.0,
+              "l2" : 0.0,
+              "l2Bias" : 0.0,
+              "layerName" : "convolution2d_12",
+              "learningRate" : 0.1,
+              "learningRateSchedule" : null,
+              "momentum" : "NaN",
+              "momentumSchedule" : null,
+              "nin" : 64,
+              "nout" : 64,
+              "padding" : [ 0, 0 ],
+              "rho" : "NaN",
+              "rmsDecay" : "NaN",
+              "stride" : [ 1, 1 ],
+              "updater" : "SGD",
+              "weightInit" : "XAVIER_UNIFORM"
+            }
+          },
+          "leakyreluAlpha" : 0.0,
+          "learningRateByParam" : {
+            "b" : 0.1,
+            "W" : 0.1
+          },
+          "learningRatePolicy" : "None",
+          "lrPolicyDecayRate" : "NaN",
+          "lrPolicyPower" : "NaN",
+          "lrPolicySteps" : "NaN",
+          "maxNumLineSearchIterations" : 5,
+          "miniBatch" : true,
+          "minimize" : true,
+          "numIterations" : 1,
+          "optimizationAlgo" : "STOCHASTIC_GRADIENT_DESCENT",
+          "pretrain" : false,
+          "seed" : 1504522481604,
+          "stepFunction" : null,
+          "useDropConnect" : false,
+          "useRegularization" : false,
+          "variables" : [ "W", "b" ]
+        },
+        "outputVertex" : false,
+        "preProcessor" : null
+      }
+    },
+    "flatten_1" : {
+      "PreprocessorVertex" : {
+        "preProcessor" : {
+          "TensorFlowCnnToFeedForwardPreProcessor" : {
+            "inputHeight" : 24,
+            "inputWidth" : 24,
+            "numChannels" : 64
+          }
+        }
+      }
+    },
+    "flatten_2" : {
+      "PreprocessorVertex" : {
+        "preProcessor" : {
+          "TensorFlowCnnToFeedForwardPreProcessor" : {
+            "inputHeight" : 24,
+            "inputWidth" : 24,
+            "numChannels" : 64
+          }
+        }
+      }
+    },
+    "flatten_3" : {
+      "PreprocessorVertex" : {
+        "preProcessor" : {
+          "TensorFlowCnnToFeedForwardPreProcessor" : {
+            "inputHeight" : 24,
+            "inputWidth" : 24,
+            "numChannels" : 64
+          }
+        }
+      }
+    },
+    "dense_1" : {
+      "LayerVertex" : {
+        "layerConf" : {
+          "cacheMode" : "NONE",
+          "iterationCount" : 0,
+          "l1ByParam" : {
+            "b" : 0.0,
+            "W" : 0.0
+          },
+          "l2ByParam" : {
+            "b" : 0.0,
+            "W" : 0.0
+          },
+          "layer" : {
+            "dense" : {
+              "activationFn" : {
+                "ReLU" : { }
+              },
+              "adamMeanDecay" : "NaN",
+              "adamVarDecay" : "NaN",
+              "biasInit" : 0.0,
+              "biasLearningRate" : 0.1,
+              "dist" : null,
+              "dropOut" : 1.0,
+              "epsilon" : "NaN",
+              "gradientNormalization" : "None",
+              "gradientNormalizationThreshold" : 1.0,
+              "iupdater" : {
+                "@class" : "org.nd4j.linalg.learning.config.Sgd",
+                "learningRate" : 0.1
+              },
+              "l1" : 0.0,
+              "l1Bias" : 0.0,
+              "l2" : 0.0,
+              "l2Bias" : 0.0,
+              "layerName" : "dense_1",
+              "learningRate" : 0.1,
+              "learningRateSchedule" : null,
+              "momentum" : "NaN",
+              "momentumSchedule" : null,
+              "nin" : 36864,
+              "nout" : 128,
+              "rho" : "NaN",
+              "rmsDecay" : "NaN",
+              "updater" : "SGD",
+              "weightInit" : "XAVIER_UNIFORM"
+            }
+          },
+          "leakyreluAlpha" : 0.0,
+          "learningRateByParam" : {
+            "b" : 0.1,
+            "W" : 0.1
+          },
+          "learningRatePolicy" : "None",
+          "lrPolicyDecayRate" : "NaN",
+          "lrPolicyPower" : "NaN",
+          "lrPolicySteps" : "NaN",
+          "maxNumLineSearchIterations" : 5,
+          "miniBatch" : true,
+          "minimize" : true,
+          "numIterations" : 1,
+          "optimizationAlgo" : "STOCHASTIC_GRADIENT_DESCENT",
+          "pretrain" : false,
+          "seed" : 1504522481604,
+          "stepFunction" : null,
+          "useDropConnect" : false,
+          "useRegularization" : false,
+          "variables" : [ "W", "b" ]
+        },
+        "outputVertex" : false,
+        "preProcessor" : null
+      }
+    },
+    "dense_2" : {
+      "LayerVertex" : {
+        "layerConf" : {
+          "cacheMode" : "NONE",
+          "iterationCount" : 0,
+          "l1ByParam" : {
+            "b" : 0.0,
+            "W" : 0.0
+          },
+          "l2ByParam" : {
+            "b" : 0.0,
+            "W" : 0.0
+          },
+          "layer" : {
+            "dense" : {
+              "activationFn" : {
+                "ReLU" : { }
+              },
+              "adamMeanDecay" : "NaN",
+              "adamVarDecay" : "NaN",
+              "biasInit" : 0.0,
+              "biasLearningRate" : 0.1,
+              "dist" : null,
+              "dropOut" : 1.0,
+              "epsilon" : "NaN",
+              "gradientNormalization" : "None",
+              "gradientNormalizationThreshold" : 1.0,
+              "iupdater" : {
+                "@class" : "org.nd4j.linalg.learning.config.Sgd",
+                "learningRate" : 0.1
+              },
+              "l1" : 0.0,
+              "l1Bias" : 0.0,
+              "l2" : 0.0,
+              "l2Bias" : 0.0,
+              "layerName" : "dense_2",
+              "learningRate" : 0.1,
+              "learningRateSchedule" : null,
+              "momentum" : "NaN",
+              "momentumSchedule" : null,
+              "nin" : 36864,
+              "nout" : 128,
+              "rho" : "NaN",
+              "rmsDecay" : "NaN",
+              "updater" : "SGD",
+              "weightInit" : "XAVIER_UNIFORM"
+            }
+          },
+          "leakyreluAlpha" : 0.0,
+          "learningRateByParam" : {
+            "b" : 0.1,
+            "W" : 0.1
+          },
+          "learningRatePolicy" : "None",
+          "lrPolicyDecayRate" : "NaN",
+          "lrPolicyPower" : "NaN",
+          "lrPolicySteps" : "NaN",
+          "maxNumLineSearchIterations" : 5,
+          "miniBatch" : true,
+          "minimize" : true,
+          "numIterations" : 1,
+          "optimizationAlgo" : "STOCHASTIC_GRADIENT_DESCENT",
+          "pretrain" : false,
+          "seed" : 1504522481604,
+          "stepFunction" : null,
+          "useDropConnect" : false,
+          "useRegularization" : false,
+          "variables" : [ "W", "b" ]
+        },
+        "outputVertex" : false,
+        "preProcessor" : null
+      }
+    },
+    "dense_3" : {
+      "LayerVertex" : {
+        "layerConf" : {
+          "cacheMode" : "NONE",
+          "iterationCount" : 0,
+          "l1ByParam" : {
+            "b" : 0.0,
+            "W" : 0.0
+          },
+          "l2ByParam" : {
+            "b" : 0.0,
+            "W" : 0.0
+          },
+          "layer" : {
+            "dense" : {
+              "activationFn" : {
+                "ReLU" : { }
+              },
+              "adamMeanDecay" : "NaN",
+              "adamVarDecay" : "NaN",
+              "biasInit" : 0.0,
+              "biasLearningRate" : 0.1,
+              "dist" : null,
+              "dropOut" : 1.0,
+              "epsilon" : "NaN",
+              "gradientNormalization" : "None",
+              "gradientNormalizationThreshold" : 1.0,
+              "iupdater" : {
+                "@class" : "org.nd4j.linalg.learning.config.Sgd",
+                "learningRate" : 0.1
+              },
+              "l1" : 0.0,
+              "l1Bias" : 0.0,
+              "l2" : 0.0,
+              "l2Bias" : 0.0,
+              "layerName" : "dense_3",
+              "learningRate" : 0.1,
+              "learningRateSchedule" : null,
+              "momentum" : "NaN",
+              "momentumSchedule" : null,
+              "nin" : 36864,
+              "nout" : 128,
+              "rho" : "NaN",
+              "rmsDecay" : "NaN",
+              "updater" : "SGD",
+              "weightInit" : "XAVIER_UNIFORM"
+            }
+          },
+          "leakyreluAlpha" : 0.0,
+          "learningRateByParam" : {
+            "b" : 0.1,
+            "W" : 0.1
+          },
+          "learningRatePolicy" : "None",
+          "lrPolicyDecayRate" : "NaN",
+          "lrPolicyPower" : "NaN",
+          "lrPolicySteps" : "NaN",
+          "maxNumLineSearchIterations" : 5,
+          "miniBatch" : true,
+          "minimize" : true,
+          "numIterations" : 1,
+          "optimizationAlgo" : "STOCHASTIC_GRADIENT_DESCENT",
+          "pretrain" : false,
+          "seed" : 1504522481604,
+          "stepFunction" : null,
+          "useDropConnect" : false,
+          "useRegularization" : false,
+          "variables" : [ "W", "b" ]
+        },
+        "outputVertex" : false,
+        "preProcessor" : null
+      }
+    },
+    "dense_4" : {
+      "LayerVertex" : {
+        "layerConf" : {
+          "cacheMode" : "NONE",
+          "iterationCount" : 0,
+          "l1ByParam" : {
+            "b" : 0.0,
+            "W" : 0.0
+          },
+          "l2ByParam" : {
+            "b" : 0.0,
+            "W" : 0.0
+          },
+          "layer" : {
+            "dense" : {
+              "activationFn" : {
+                "ReLU" : { }
+              },
+              "adamMeanDecay" : "NaN",
+              "adamVarDecay" : "NaN",
+              "biasInit" : 0.0,
+              "biasLearningRate" : 0.1,
+              "dist" : null,
+              "dropOut" : 1.0,
+              "epsilon" : "NaN",
+              "gradientNormalization" : "None",
+              "gradientNormalizationThreshold" : 1.0,
+              "iupdater" : {
+                "@class" : "org.nd4j.linalg.learning.config.Sgd",
+                "learningRate" : 0.1
+              },
+              "l1" : 0.0,
+              "l1Bias" : 0.0,
+              "l2" : 0.0,
+              "l2Bias" : 0.0,
+              "layerName" : "dense_4",
+              "learningRate" : 0.1,
+              "learningRateSchedule" : null,
+              "momentum" : "NaN",
+              "momentumSchedule" : null,
+              "nin" : 625,
+              "nout" : 128,
+              "rho" : "NaN",
+              "rmsDecay" : "NaN",
+              "updater" : "SGD",
+              "weightInit" : "XAVIER_UNIFORM"
+            }
+          },
+          "leakyreluAlpha" : 0.0,
+          "learningRateByParam" : {
+            "b" : 0.1,
+            "W" : 0.1
+          },
+          "learningRatePolicy" : "None",
+          "lrPolicyDecayRate" : "NaN",
+          "lrPolicyPower" : "NaN",
+          "lrPolicySteps" : "NaN",
+          "maxNumLineSearchIterations" : 5,
+          "miniBatch" : true,
+          "minimize" : true,
+          "numIterations" : 1,
+          "optimizationAlgo" : "STOCHASTIC_GRADIENT_DESCENT",
+          "pretrain" : false,
+          "seed" : 1504522481604,
+          "stepFunction" : null,
+          "useDropConnect" : false,
+          "useRegularization" : false,
+          "variables" : [ "W", "b" ]
+        },
+        "outputVertex" : false,
+        "preProcessor" : null
+      }
+    },
+    "merge_1" : {
+      "MergeVertex" : { }
+    },
+    "dense_5" : {
+      "LayerVertex" : {
+        "layerConf" : {
+          "cacheMode" : "NONE",
+          "iterationCount" : 0,
+          "l1ByParam" : {
+            "b" : 0.0,
+            "W" : 0.0
+          },
+          "l2ByParam" : {
+            "b" : 0.0,
+            "W" : 0.0
+          },
+          "layer" : {
+            "dense" : {
+              "activationFn" : {
+                "ReLU" : { }
+              },
+              "adamMeanDecay" : "NaN",
+              "adamVarDecay" : "NaN",
+              "biasInit" : 0.0,
+              "biasLearningRate" : 0.1,
+              "dist" : null,
+              "dropOut" : 1.0,
+              "epsilon" : "NaN",
+              "gradientNormalization" : "None",
+              "gradientNormalizationThreshold" : 1.0,
+              "iupdater" : {
+                "@class" : "org.nd4j.linalg.learning.config.Sgd",
+                "learningRate" : 0.1
+              },
+              "l1" : 0.0,
+              "l1Bias" : 0.0,
+              "l2" : 0.0,
+              "l2Bias" : 0.0,
+              "layerName" : "dense_5",
+              "learningRate" : 0.1,
+              "learningRateSchedule" : null,
+              "momentum" : "NaN",
+              "momentumSchedule" : null,
+              "nin" : 512,
+              "nout" : 256,
+              "rho" : "NaN",
+              "rmsDecay" : "NaN",
+              "updater" : "SGD",
+              "weightInit" : "XAVIER_UNIFORM"
+            }
+          },
+          "leakyreluAlpha" : 0.0,
+          "learningRateByParam" : {
+            "b" : 0.1,
+            "W" : 0.1
+          },
+          "learningRatePolicy" : "None",
+          "lrPolicyDecayRate" : "NaN",
+          "lrPolicyPower" : "NaN",
+          "lrPolicySteps" : "NaN",
+          "maxNumLineSearchIterations" : 5,
+          "miniBatch" : true,
+          "minimize" : true,
+          "numIterations" : 1,
+          "optimizationAlgo" : "STOCHASTIC_GRADIENT_DESCENT",
+          "pretrain" : false,
+          "seed" : 1504522481604,
+          "stepFunction" : null,
+          "useDropConnect" : false,
+          "useRegularization" : false,
+          "variables" : [ "W", "b" ]
+        },
+        "outputVertex" : false,
+        "preProcessor" : null
+      }
+    },
+    "dense_6" : {
+      "LayerVertex" : {
+        "layerConf" : {
+          "cacheMode" : "NONE",
+          "iterationCount" : 0,
+          "l1ByParam" : {
+            "b" : 0.0,
+            "W" : 0.0
+          },
+          "l2ByParam" : {
+            "b" : 0.0,
+            "W" : 0.0
+          },
+          "layer" : {
+            "dense" : {
+              "activationFn" : {
+                "ReLU" : { }
+              },
+              "adamMeanDecay" : "NaN",
+              "adamVarDecay" : "NaN",
+              "biasInit" : 0.0,
+              "biasLearningRate" : 0.1,
+              "dist" : null,
+              "dropOut" : 1.0,
+              "epsilon" : "NaN",
+              "gradientNormalization" : "None",
+              "gradientNormalizationThreshold" : 1.0,
+              "iupdater" : {
+                "@class" : "org.nd4j.linalg.learning.config.Sgd",
+                "learningRate" : 0.1
+              },
+              "l1" : 0.0,
+              "l1Bias" : 0.0,
+              "l2" : 0.0,
+              "l2Bias" : 0.0,
+              "layerName" : "dense_6",
+              "learningRate" : 0.1,
+              "learningRateSchedule" : null,
+              "momentum" : "NaN",
+              "momentumSchedule" : null,
+              "nin" : 256,
+              "nout" : 128,
+              "rho" : "NaN",
+              "rmsDecay" : "NaN",
+              "updater" : "SGD",
+              "weightInit" : "XAVIER_UNIFORM"
+            }
+          },
+          "leakyreluAlpha" : 0.0,
+          "learningRateByParam" : {
+            "b" : 0.1,
+            "W" : 0.1
+          },
+          "learningRatePolicy" : "None",
+          "lrPolicyDecayRate" : "NaN",
+          "lrPolicyPower" : "NaN",
+          "lrPolicySteps" : "NaN",
+          "maxNumLineSearchIterations" : 5,
+          "miniBatch" : true,
+          "minimize" : true,
+          "numIterations" : 1,
+          "optimizationAlgo" : "STOCHASTIC_GRADIENT_DESCENT",
+          "pretrain" : false,
+          "seed" : 1504522481604,
+          "stepFunction" : null,
+          "useDropConnect" : false,
+          "useRegularization" : false,
+          "variables" : [ "W", "b" ]
+        },
+        "outputVertex" : false,
+        "preProcessor" : null
+      }
+    },
+    "dense_7" : {
+      "LayerVertex" : {
+        "layerConf" : {
+          "cacheMode" : "NONE",
+          "iterationCount" : 0,
+          "l1ByParam" : {
+            "b" : 0.0,
+            "W" : 0.0
+          },
+          "l2ByParam" : {
+            "b" : 0.0,
+            "W" : 0.0
+          },
+          "layer" : {
+            "dense" : {
+              "activationFn" : {
+                "Identity" : { }
+              },
+              "adamMeanDecay" : "NaN",
+              "adamVarDecay" : "NaN",
+              "biasInit" : 0.0,
+              "biasLearningRate" : 0.1,
+              "dist" : null,
+              "dropOut" : 1.0,
+              "epsilon" : "NaN",
+              "gradientNormalization" : "None",
+              "gradientNormalizationThreshold" : 1.0,
+              "iupdater" : {
+                "@class" : "org.nd4j.linalg.learning.config.Sgd",
+                "learningRate" : 0.1
+              },
+              "l1" : 0.0,
+              "l1Bias" : 0.0,
+              "l2" : 0.0,
+              "l2Bias" : 0.0,
+              "layerName" : "dense_7",
+              "learningRate" : 0.1,
+              "learningRateSchedule" : null,
+              "momentum" : "NaN",
+              "momentumSchedule" : null,
+              "nin" : 128,
+              "nout" : 2,
+              "rho" : "NaN",
+              "rmsDecay" : "NaN",
+              "updater" : "SGD",
+              "weightInit" : "XAVIER_UNIFORM"
+            }
+          },
+          "leakyreluAlpha" : 0.0,
+          "learningRateByParam" : {
+            "b" : 0.1,
+            "W" : 0.1
+          },
+          "learningRatePolicy" : "None",
+          "lrPolicyDecayRate" : "NaN",
+          "lrPolicyPower" : "NaN",
+          "lrPolicySteps" : "NaN",
+          "maxNumLineSearchIterations" : 5,
+          "miniBatch" : true,
+          "minimize" : true,
+          "numIterations" : 1,
+          "optimizationAlgo" : "STOCHASTIC_GRADIENT_DESCENT",
+          "pretrain" : false,
+          "seed" : 1504522481604,
+          "stepFunction" : null,
+          "useDropConnect" : false,
+          "useRegularization" : false,
+          "variables" : [ "W", "b" ]
+        },
+        "outputVertex" : false,
+        "preProcessor" : null
+      }
+    }
+  }
+}
